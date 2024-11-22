@@ -114,7 +114,7 @@
             //        //https://learn.microsoft.com/en-us/dotnet/api/system.char.isdigit?view=net-9.0
             //        if (char.IsDigit(password[i])) oneDigit = true;
             //        if (!char.IsLetterOrDigit(password[i])) oneSpecialSymbol = true;
-                   
+
             //    }
 
 
@@ -130,7 +130,37 @@
             //}
             //Console.WriteLine("Password has been created");
 
-            //5. 
+            //5. Генерація фібоначчівської послідовності: Напишіть програму,
+            //яка генерує перші N чисел Фібоначчі. Послідовність Фібоначчі
+            //починається з 0 і 1, а кожне наступне число є сумою двох
+            //попередніх чисел у послідовності.
+
+            Console.WriteLine("Please enter your the desired number of Fibonacci numbers. Starting from 2");
+            string strCountOfFibonacciNum = Console.ReadLine();
+
+            if (long.TryParse(strCountOfFibonacciNum, out long countOfFibonacciNum) && countOfFibonacciNum > 0)
+            {
+                long firstNum = 0; //перше число послідовності
+                long secondNum = 1; //друге число послідовності
+                long sum = 0; //третя зміна для суми та перезапису змінних
+                string beginFibonacciNum = "0 1";
+                string afterFibonacciNum = string.Empty;
+                for (int i = 2; i < countOfFibonacciNum; i++)
+                {
+                    //сумуємо
+                    sum = firstNum + secondNum;
+                    //переназначаємо зміні
+                    firstNum = secondNum;
+                    secondNum = sum;
+                    //записуємо результат
+                    afterFibonacciNum += " " + secondNum;                    
+                }
+                Console.WriteLine(beginFibonacciNum + afterFibonacciNum); //вивід
+            }
+            else
+            {
+                Console.WriteLine("Error ******************************************* Error");
+            }
 
         }
     }
